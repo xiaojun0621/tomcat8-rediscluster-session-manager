@@ -62,7 +62,7 @@ public class RedisClusterSessionManager extends ManagerBase implements Lifecycle
   protected ThreadLocal<Boolean> currentSessionIsPersisted = new ThreadLocal<>();
   protected Serializer serializer;
 
-  protected static String name = "RedisSessionManager";
+  protected static String name = "RedisClusterSessionManager";
 
   protected String serializationStrategyClass = "com.orangefunction.tomcat.redissessions.JavaSerializer";
 
