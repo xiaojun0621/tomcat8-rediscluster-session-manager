@@ -32,7 +32,7 @@ public class RedisClusterSessionManager extends ManagerBase implements Lifecycle
 
   protected byte[] NULL_SESSION = "null".getBytes();
 
-  private final Log log = LogFactory.getLog(RedisSessionManager.class);
+  private final Log log = LogFactory.getLog(RedisClusterSessionManager.class);
 
   protected String host = "localhost";
   protected int port = 6379;
@@ -766,7 +766,8 @@ public class RedisClusterSessionManager extends ManagerBase implements Lifecycle
       this.connectionPoolConfig.setMaxTotal(getMaxTotal());
       this.connectionPoolConfig.setMinIdle(getMinIdle());
       this.connectionPoolConfig.setMaxIdle(getMaxIdle());
-      jedisCluster = new JedisCluster(haps, timeout, maxRedirections, this.connectionPoolConfig, password);
+      //jedisCluster = new JedisCluster(haps, timeout, maxRedirections, this.connectionPoolConfig, password);
+      jedisCluster = new JedisCluster(haps, timeout, maxRedirections, this.connectionPoolConfig);
 
       /*
       if (getSentinelMaster() != null) {
